@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О компании | ВАЙРПОЛИМЕР</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">ВАЙРПОЛИМЕР</div>
+    <nav class="desktop-nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html" class="active">О компании</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="contacts desktop-contacts">
+      <a href="tel:+7 (916) 017-66-80">+7 (916) 017-66-80</a>
+      <a href="mailto:vairpolimer@gmail.com">vairpolimer@gmail.com</a>
+    </div>
+    
+    <!-- Мобильное меню -->
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <nav class="mobile-nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html" class="active">О компании</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="mobile-contacts">
+        <a href="tel:+7 (916) 017-66-80">+7 (916) 017-66-80</a>
+        <a href="mailto:vairpolimer@gmail.com">vairpolimer@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>О компании <span class="blue">ВАЙРПОЛИМЕР</span></h1>
+      <div class="about-content">
+        <div class="about-card">
+          <h2>Наша миссия</h2>
+          <p>ООО «ВАЙРПОЛИМЕР» специализируется на оптовых и мелкооптовых поставках кабельно-проводниковой продукции от крупнейших заводов России.</p>
+        </div>
+        <div class="about-card">
+          <h2>Наши преимущества</h2>
+          <p>Мы предлагаем конкурентные цены и максимально выгодные условия сотрудничества, индивидуальный подход, логистическую поддержку и профессиональные консультации.</p>
+        </div>
+        <div class="about-card">
+          <h2>Качество продукции</h2>
+          <p>Вся продукция сертифицирована и соответствует международным стандартам качества. Мы работаем только с проверенными производителями.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 ВАЙРПОЛИМЕР</p>
+  </footer>
+  
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      mobileMenu.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+    }
+    
+    // Закрытие мобильного меню при клике вне его
+    document.addEventListener('click', function(event) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+    
+    // Закрытие мобильного меню при изменении размера экрана
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        mobileMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

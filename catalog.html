@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог | ВАЙРПОЛИМЕР</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">ВАЙРПОЛИМЕР</div>
+    <nav class="desktop-nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О компании</a>
+      <a href="catalog.html" class="active">Каталог</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="contacts desktop-contacts">
+      <a href="tel:+7 (916) 017-66-80">+7 (916) 017-66-80</a>
+      <a href="mailto:vairpolimer@gmail.com">vairpolimer@gmail.com</a>
+    </div>
+    
+    <!-- Мобильное меню -->
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <nav class="mobile-nav">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О компании</a>
+        <a href="catalog.html" class="active">Каталог</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <div class="mobile-contacts">
+        <a href="tel:+7 (916) 017-66-80">+7 (916) 017-66-80</a>
+        <a href="mailto:vairpolimer@gmail.com">vairpolimer@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Каталог продукции <span class="blue">ВАЙРПОЛИМЕР</span></h1>
+    </section>
+
+    <div class="catalog">
+      <div class="card" onclick="showProduct('cable')">
+        <div class="card-image">
+          <img src="images/нефтепогружной кабель без фона.jpg" alt="Кабель" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3>Нефтегружной кабель</h3>
+          <p>Высококачественный кабель для нефтяной промышленности</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-image">
+          <img src="images/медная проволока.jpg" alt="Провод" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3>Медная проволока</h3>
+          <p>Проволока из высококачественной меди различных сечений</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-image">
+          <img src="images/выводной провод.jpg" alt="Выводной провод" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3>Выводной провод</h3>
+          <p>Специализированные провода для электротехнических работ</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="images/обмоточный утонченный.jpg" alt="Обмоточный провод" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3>Обмоточный провод (утонченный)</h3>
+          <p>Специализированные провода для электротехнических работ</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="images/poliimidnaya-plenka_540x371_f38.jpg 2.jpg" alt="Полиимидная пленка" loading="lazy">
+        </div>
+        <div class="card-content">
+          <h3>Полиимидная пленка</h3>
+          <p>Высокотемпературная изоляционная пленка для электротехнических применений</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="product-details" class="hidden">
+      <div class="product-modal">
+        <div class="modal-header">
+          <h2>КПфБкПк-250</h2>
+          <button class="close-btn" onclick="hideProduct()">×</button>
+        </div>
+        <div class="modal-content">
+          <p>Кабель с медными жилами, покрытый пленочной полиимидно-фторопластовой изоляцией.</p>
+          <div class="specs">
+            <h3>Технические характеристики:</h3>
+            <ul>
+              <li><strong>Температура эксплуатации:</strong> до 250°С</li>
+              <li><strong>Макс. нагрузка:</strong> от 200°С до 240°С</li>
+              <li><strong>Номинальное напряжение:</strong> 5 кВ</li>
+              <li><strong>Материал жил:</strong> Медь</li>
+              <li><strong>Тип изоляции:</strong> Полиимидно-фторопластовая</li>
+            </ul>
+          </div>
+          <div class="product-actions">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 ВАЙРПОЛИМЕР</p>
+  </footer>
+  
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      mobileMenu.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+    }
+    
+    // Закрытие мобильного меню при клике вне его
+    document.addEventListener('click', function(event) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+    
+    // Закрытие мобильного меню при изменении размера экрана
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        mobileMenu.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
