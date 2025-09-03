@@ -1,8 +1,8 @@
 - HTML5 
-- CSS3 с современными свойствами
-- JavaScript для интерактивности
+- CSS3
+- JavaScript
 - Google Fonts (Inter)
-- CSS Grid и Flexbox для макета
+- CSS Grid и Flexbox
 
 Структура файлов:
 
@@ -16,3 +16,4 @@
 ├── images/             # Папка для изображений
 └── README.md           # Документация
 ```
+
